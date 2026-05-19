@@ -7,8 +7,8 @@
  * The Tailwind preset (`tailwind.preset.ts`) imports this file directly,
  * so Tailwind picks up changes automatically — no rebuild needed there.
  *
- * Source: Figma file n1Gg49TiP5wpNTyMxUQSph —
- *   "Type System Container" (2:189) and "Colors System Container" (7:2528).
+ * Source: Figma file OddSea7LOiGx5mX4kjKobx (Brim Cloud CMS) —
+ *   "Type System Container" (9008:4356) and "Colors System Container" (9008:4428).
  */
 
 export const colors = {
