@@ -1,0 +1,156 @@
+/* CSS-Modules alternative to Sidebar.tsx's Tailwind variants.
+   Type styles inherited from typography.css via `composes from global`. */
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 268px;
+  height: 100%;
+  padding: var(--space-4);
+  gap: var(--space-1);
+  background-color: var(--surface-default);
+  border-right: 1px solid var(--border-default);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-radius: 8px;
+  border: 1px solid var(--border-default);
+}
+
+.brandLabel {
+  composes: text-label-large-strong from global;
+  color: var(--text-primary);
+}
+
+.brandDot {
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--brand-primary);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.sectionLabel {
+  composes: text-label-small from global;
+  padding: var(--space-6) var(--space-3) var(--space-2);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 150ms ease-out;
+  text-decoration: none;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  font: inherit;
+}
+
+.item:hover { background-color: var(--surface-subtle); }
+
+.itemInactive {
+  composes: text-body-regular from global;
+  color: var(--text-secondary);
+}
+
+.itemActive {
+  composes: text-body-strong from global;
+  background-color: var(--status-success-bg);
+  color: var(--brand-primary);
+}
+
+.itemIcon {
+  display: inline-flex;
+  width: 20px;
+  height: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding-top: var(--space-4);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0 var(--space-3);
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-3) var(--space-2);
+  border-top: 1px solid var(--border-default);
+}
+
+.userAvatar {
+  composes: text-label-small from global;
+  display: inline-flex;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-inverse);
+}
+
+.userMeta {
+  flex: 1;
+  min-width: 0;
+}
+
+.userName {
+  composes: text-body-strong from global;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.userRole {
+  composes: text-label-small from global;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.signOut {
+  display: inline-flex;
+  width: 32px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--text-secondary);
+}
+
+.signOut:hover { background-color: var(--surface-subtle); }

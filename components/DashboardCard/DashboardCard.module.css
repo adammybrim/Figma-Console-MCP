@@ -1,0 +1,88 @@
+/* CSS-Modules alternative to DashboardCard.tsx's Tailwind variants.
+   Mirrors the "Dashboard Card" component set in Figma.
+   Type styles are inherited from typography.css via `composes from global` —
+   colour tokens come from tokens.css. Both files must be imported once at app root. */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-radius: 12px;
+  border: 1px solid var(--border-default);
+  background-color: var(--surface-default);
+  transition: box-shadow 200ms ease-out;
+}
+
+.card:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.interactive {
+  cursor: pointer;
+  outline-offset: 2px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.labelGroup {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.statusDot {
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.statusDot.amber { background-color: var(--status-warning-text); }
+.statusDot.green { background-color: var(--brand-primary); }
+.statusDot.red   { background-color: var(--status-danger-text); }
+.statusDot.blue  { background-color: var(--status-info-text); }
+
+.label {
+  composes: text-label-small from global;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+.arrow {
+  composes: text-label-small from global;
+  color: var(--text-tertiary);
+}
+
+.statRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.stat {
+  composes: text-display-large from global;
+  color: var(--text-primary);
+  flex: 1 1 0;
+}
+
+.chip {
+  composes: text-label-small from global;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-2);
+  border-radius: 999px;
+  border: 1px solid var(--status-success-border);
+  background-color: var(--status-success-bg);
+  color: var(--status-success-text);
+}
+
+.support {
+  composes: text-body-regular from global;
+  color: var(--text-secondary);
+}

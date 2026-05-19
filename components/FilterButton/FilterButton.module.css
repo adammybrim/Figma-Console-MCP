@@ -1,0 +1,27 @@
+/* CSS-Modules alternative to FilterButton.tsx's Tailwind variants.
+   Mirrors the "Filter Button" component set in Figma.
+   Type styles inherited from typography.css via `composes from global`. */
+
+.button {
+  composes: text-body-regular from global;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  gap: var(--space-2);
+  border-radius: 8px;
+  border: 1px solid var(--border-default);
+  background-color: var(--surface-default);
+  color: var(--text-secondary);
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 150ms ease-out;
+}
+
+.button:not(:disabled):hover  { background-color: var(--surface-subtle); }
+.button:not(:disabled):active { background-color: #F1F2F4; }
+.button:disabled              { cursor: not-allowed; opacity: 0.6; }
+
+/* ───── Variants ───── */
+.dropdown    { padding: 0 var(--space-3); }
+.leadingIcon { padding: 0 var(--space-4); }

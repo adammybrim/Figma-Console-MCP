@@ -1,0 +1,140 @@
+/* CSS-Modules alternative to PageHeader.tsx's Tailwind variants.
+   Type styles inherited from typography.css via `composes from global`. */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--space-3) var(--space-6);
+  background-color: var(--surface-default);
+  border-bottom: 1px solid var(--border-default);
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.crumbIcon {
+  display: inline-flex;
+  width: 20px;
+  height: 20px;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+}
+
+.crumbSeparator {
+  color: var(--text-tertiary);
+}
+
+.crumbInactive {
+  composes: text-body-regular from global;
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+
+.crumbActive {
+  composes: text-h2 from global;
+  color: var(--text-primary);
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.actionButton {
+  position: relative;
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: 1px solid var(--border-default);
+  background-color: var(--surface-default);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background-color 150ms ease-out;
+}
+
+.actionButton:hover { background-color: var(--surface-subtle); }
+
+.actionBadge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  display: inline-flex;
+  height: 16px;
+  min-width: 16px;
+  padding: 0 4px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background-color: var(--status-danger-text);
+  color: var(--text-inverse);
+  font-family: var(--font-sans);
+  font-size: 10px;
+  line-height: 14px;
+  font-weight: 600;
+}
+
+.separator {
+  width: 1px;
+  height: 24px;
+  background-color: var(--border-default);
+  margin: 0 var(--space-1);
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-2);
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 150ms ease-out;
+}
+
+.user:hover { background-color: var(--surface-subtle); }
+
+.userAvatar {
+  composes: text-label-small from global;
+  display: inline-flex;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-inverse);
+}
+
+.userText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.userName {
+  composes: text-body-strong from global;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.userEmail {
+  composes: text-label-small from global;
+  color: var(--text-secondary);
+  line-height: 1.2;
+}
