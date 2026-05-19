@@ -1,0 +1,50 @@
+/* AUTO-GENERATED from tokens.ts. Do not edit by hand.
+   Run "npm run build:tokens" to regenerate. */
+
+:root {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  --text-primary: #323232;
+  --text-secondary: #697284;
+  --text-tertiary: #98A1B0;
+  --text-inverse: #FFFFFF;
+  --brand-primary: #00C68B;
+  --surface-default: #FFFFFF;
+  --surface-subtle: #F9FAFB;
+  --border-default: #E5E5E5;
+  --border-subtle: #E6E7EB;
+  --border-strong: #858C9B;
+  --status-success-bg: #EAFEF6;
+  --status-success-border: #C6EFE0;
+  --status-success-text: #00C68B;
+  --status-info-bg: #EFF6FF;
+  --status-info-border: #BDDBFF;
+  --status-info-text: #155DFC;
+  --status-danger-bg: #FEF2F2;
+  --status-danger-border: #ECC6BF;
+  --status-danger-text: #F5583D;
+  --status-warning-bg: #FDFBED;
+  --status-warning-border: #FFE19C;
+  --status-warning-text: #FFB200;
+  --status-neutral-bg: #FAFAFA;
+  --status-neutral-border: #E5E6EA;
+  --status-neutral-text: #697284;
+  --status-private-bg: #FAF5FF;
+  --status-private-border: #EDDDFF;
+  --status-private-text: #8A38F5;
+  --neutral-medium: #BDBDBD;
+  --neutral-light: #CBCBCB;
+
+  --space-0:  0px;
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-14: 56px;
+  --space-16: 64px;
+}
