@@ -9,6 +9,7 @@
   --text-tertiary: #98A1B0;
   --text-inverse: #FFFFFF;
   --brand-primary: #00C68B;
+  --brand-primary-tint-20: rgba(0, 198, 139, 0.2);
   --surface-default: #FFFFFF;
   --surface-subtle: #F9FAFB;
   --border-default: #E5E5E5;
@@ -17,15 +18,19 @@
   --status-success-bg: #EAFEF6;
   --status-success-border: #C6EFE0;
   --status-success-text: #00C68B;
+  --status-success-text-dark: #009966;
   --status-info-bg: #EFF6FF;
   --status-info-border: #BDDBFF;
   --status-info-text: #155DFC;
+  --status-info-text-dark: #1E40AF;
   --status-danger-bg: #FEF2F2;
   --status-danger-border: #ECC6BF;
   --status-danger-text: #F5583D;
+  --status-danger-text-dark: #991B1B;
   --status-warning-bg: #FDFBED;
   --status-warning-border: #FFE19C;
   --status-warning-text: #FFB200;
+  --status-warning-text-dark: #A1621C;
   --status-neutral-bg: #FAFAFA;
   --status-neutral-border: #E5E6EA;
   --status-neutral-text: #697284;

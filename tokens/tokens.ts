@@ -20,6 +20,8 @@ export const colors = {
   },
   brand: {
     primary: '#00C68B',
+    /** 20% tint of brand/primary — use as a transparent overlay (e.g. icon haloes). */
+    'primary-tint-20': 'rgba(0, 198, 139, 0.2)',
   },
   surface: {
     default: '#FFFFFF',
@@ -30,16 +32,18 @@ export const colors = {
     subtle:  '#E6E7EB',
     strong:  '#858C9B',
   },
-  /** Status colors — scoped to badge/chip components only, not general UI. */
+  /** Status colors — scoped to badge/chip components only, not general UI.
+   *  `text-dark` variants are darker readables for use on the matching `bg`
+   *  (e.g. alert-notification body text on the same-status tinted card). */
   status: {
     /** Online · Available · Active · Payout · Completed · Paid · Shared */
-    success: { bg: '#EAFEF6', border: '#C6EFE0', text: '#00C68B' },
+    success: { bg: '#EAFEF6', border: '#C6EFE0', text: '#00C68B', 'text-dark': '#009966' },
     /** Charging · Open */
-    info:    { bg: '#EFF6FF', border: '#BDDBFF', text: '#155DFC' },
+    info:    { bg: '#EFF6FF', border: '#BDDBFF', text: '#155DFC', 'text-dark': '#1E40AF' },
     /** Faulted · Unavailable */
-    danger:  { bg: '#FEF2F2', border: '#ECC6BF', text: '#F5583D' },
+    danger:  { bg: '#FEF2F2', border: '#ECC6BF', text: '#F5583D', 'text-dark': '#991B1B' },
     /** Suspended · Charged */
-    warning: { bg: '#FDFBED', border: '#FFE19C', text: '#FFB200' },
+    warning: { bg: '#FDFBED', border: '#FFE19C', text: '#FFB200', 'text-dark': '#A1621C' },
     /** Offline · Pending · Preparing · Finishing · Plugged · Unplugged · Unclaimed */
     neutral: { bg: '#FAFAFA', border: '#E5E6EA', text: '#697284' },
     /** Private */
