@@ -7,48 +7,87 @@
  * The Tailwind preset (`tailwind.preset.ts`) imports this file directly,
  * so Tailwind picks up changes automatically — no rebuild needed there.
  *
- * Source: Figma file n1Gg49TiP5wpNTyMxUQSph —
- *   "Type System Container" (2:189) and "Colors System Container" (7:2528).
+ * Source: Figma file OddSea7LOiGx5mX4kjKobx (Brim Cloud CMS) —
+ *   "Type System Container" (9008:4356) and "Colors System Container" (9008:4428).
+ *
+ * Each colour is a `{ light, dark }` pair matching the Figma `Colors` collection's
+ * two modes. `build.ts` emits the light values on `:root` and the dark overrides
+ * on `[data-theme="dark"]`.
  */
+
+/** A colour token with both Light and Dark mode values. */
+export type ModeColor = { light: string; dark: string };
 
 export const colors = {
   text: {
-    primary:   '#323232',
-    secondary: '#697284',
-    tertiary:  '#98A1B0',
-    inverse:   '#FFFFFF',
+    primary:   { light: '#323232', dark: '#BDBDBD' },
+    secondary: { light: '#697284', dark: '#7C8392' },
+    tertiary:  { light: '#98A1B0', dark: '#58606D' },
+    inverse:   { light: '#FFFFFF', dark: '#FFFFFF' },
   },
   brand: {
-    primary: '#00C68B',
+    primary: { light: '#00C68B', dark: '#43EAB8' },
+    /** 20% tint of brand/primary — use as a transparent overlay (e.g. icon haloes). */
+    'primary-tint-20': { light: 'rgba(0, 198, 139, 0.2)', dark: 'rgba(0, 198, 139, 0.2)' },
   },
   surface: {
-    default: '#FFFFFF',
-    subtle:  '#F9FAFB',
+    default: { light: '#FFFFFF', dark: '#1A1A1A' },
+    subtle:  { light: '#F9FAFB', dark: '#191E22' },
   },
   border: {
-    default: '#E5E5E5',
-    subtle:  '#E6E7EB',
-    strong:  '#858C9B',
+    default: { light: '#E5E5E5', dark: '#2E2E2E' },
+    subtle:  { light: '#E6E7EB', dark: '#28292F' },
+    strong:  { light: '#858C9B', dark: '#696F7B' },
   },
-  /** Status colors — scoped to badge/chip components only, not general UI. */
+  /** Status colors — scoped to badge/chip components only, not general UI.
+   *  `text-dark` variants are darker readables for use on the matching `bg`
+   *  (e.g. alert-notification body text on the same-status tinted card). */
   status: {
     /** Online · Available · Active · Payout · Completed · Paid · Shared */
-    success: { bg: '#EAFEF6', border: '#C6EFE0', text: '#00C68B' },
+    success: {
+      bg:          { light: '#EAFEF6', dark: '#093B27' },
+      border:      { light: '#C6EFE0', dark: '#1E4F3D' },
+      text:        { light: '#00C68B', dark: '#43EAB8' },
+      'text-dark': { light: '#009966', dark: '#63EEBF' },
+    },
     /** Charging · Open */
-    info:    { bg: '#EFF6FF', border: '#BDDBFF', text: '#155DFC' },
+    info: {
+      bg:          { light: '#EFF6FF', dark: '#082447' },
+      border:      { light: '#BDDBFF', dark: '#0A305D' },
+      text:        { light: '#155DFC', dark: '#1A55D6' },
+      'text-dark': { light: '#1E40AF', dark: '#5773D0' },
+    },
     /** Faulted · Unavailable */
-    danger:  { bg: '#FEF2F2', border: '#ECC6BF', text: '#F5583D' },
+    danger: {
+      bg:          { light: '#FEF2F2', dark: '#340A0A' },
+      border:      { light: '#ECC6BF', dark: '#542921' },
+      text:        { light: '#F5583D', dark: '#B8351E' },
+      'text-dark': { light: '#991B1B', dark: '#D46767' },
+    },
     /** Suspended · Charged */
-    warning: { bg: '#FDFBED', border: '#FFE19C', text: '#FFB200' },
+    warning: {
+      bg:          { light: '#FDFBED', dark: '#37320C' },
+      border:      { light: '#FFE19C', dark: '#75560D' },
+      text:        { light: '#FFB200', dark: '#E5A81A' },
+      'text-dark': { light: '#A1621C', dark: '#D39D61' },
+    },
     /** Offline · Pending · Preparing · Finishing · Plugged · Unplugged · Unclaimed */
-    neutral: { bg: '#FAFAFA', border: '#E5E6EA', text: '#697284' },
+    neutral: {
+      bg:     { light: '#FAFAFA', dark: '#1E1E1E' },
+      border: { light: '#E5E6EA', dark: '#292A30' },
+      text:   { light: '#697284', dark: '#7C8392' },
+    },
     /** Private */
-    private: { bg: '#FAF5FF', border: '#EDDDFF', text: '#8A38F5' },
+    private: {
+      bg:     { light: '#FAF5FF', dark: '#340C5B' },
+      border: { light: '#EDDDFF', dark: '#4C158A' },
+      text:   { light: '#8A38F5', dark: '#9118EE' },
+    },
   },
   /** Generic greys, outside the Status system. */
   neutral: {
-    medium: '#BDBDBD',
-    light:  '#CBCBCB',
+    medium: { light: '#BDBDBD', dark: '#4E4E4E' },
+    light:  { light: '#CBCBCB', dark: '#434343' },
   },
 } as const;
 
