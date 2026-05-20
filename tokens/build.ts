@@ -13,10 +13,20 @@ const HEADER =
   '/* AUTO-GENERATED from tokens.ts. Do not edit by hand.\n' +
   '   Run "npm run build:tokens" to regenerate. */\n\n';
 
-function flatten(obj: Record<string, unknown>, prefix: string[] = []): Array<[string, string]> {
-  const out: Array<[string, string]> = [];
+type ModeColor = { light: string; dark: string };
+
+function isModeColor(v: unknown): v is ModeColor {
+  return (
+    typeof v === 'object' && v !== null &&
+    typeof (v as { light?: unknown }).light === 'string' &&
+    typeof (v as { dark?: unknown }).dark === 'string'
+  );
+}
+
+function flatten(obj: Record<string, unknown>, prefix: string[] = []): Array<[string, ModeColor]> {
+  const out: Array<[string, ModeColor]> = [];
   for (const [k, v] of Object.entries(obj)) {
-    if (typeof v === 'string') {
+    if (isModeColor(v)) {
       out.push([[...prefix, k].join('-'), v]);
     } else if (v && typeof v === 'object') {
       out.push(...flatten(v as Record<string, unknown>, [...prefix, k]));
@@ -25,8 +35,15 @@ function flatten(obj: Record<string, unknown>, prefix: string[] = []): Array<[st
   return out;
 }
 
-const colorVars = flatten(colors as unknown as Record<string, unknown>)
-  .map(([name, value]) => `  --${name}: ${value};`)
+const flatColors = flatten(colors as unknown as Record<string, unknown>);
+
+const lightVars = flatColors
+  .map(([name, { light }]) => `  --${name}: ${light};`)
+  .join('\n');
+
+const darkVars = flatColors
+  .filter(([, { light, dark }]) => light !== dark)
+  .map(([name, { dark }]) => `  --${name}: ${dark};`)
   .join('\n');
 
 const spacingVars = Object.entries(spacing)
@@ -36,9 +53,13 @@ const spacingVars = Object.entries(spacing)
 const tokensCss = `${HEADER}:root {
   --font-sans: ${typography.fontFamily.sans};
 
-${colorVars}
+${lightVars}
 
 ${spacingVars}
+}
+
+[data-theme="dark"] {
+${darkVars}
 }
 `;
 
